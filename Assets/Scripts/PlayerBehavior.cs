@@ -7,10 +7,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float speed;
     public GameObject sportBall;
     public GameObject currentSportBall;
+    public int[] numbers;
+    public gameObject[] sports;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        for (int i = 0; i < numbers.length; i++)
+        {
+            print(numbers[i]);
+        }
     }
 
     // Update is called once per frame
@@ -21,7 +26,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
             Vector3 currentSportBallOffset = new Vector3(0.0f, -1.0f, 0.0f);
             currentSportBall.transform.position = gameObject.transform.position + currentSportBallOffset;
             currentSportBall.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
-            currentSportBall.GetComponent<Collider2D>().enabled = false;
         }
         else
         {
