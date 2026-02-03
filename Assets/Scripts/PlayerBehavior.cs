@@ -19,10 +19,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             Vector3 sportBallOffset = new Vector3(0.0f, -1.0f, 0.0f);
             sportBall.transform.position = gameObject.transform.position + sportBallOffset;
+            sportBall.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+            sportBall.GetComponent<Collider2D>().enabled = false;
         }
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
+            sportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+            sportBall.GetComponent<Collider2D>().enabled = true;
             sportBall = null;
         }
 
