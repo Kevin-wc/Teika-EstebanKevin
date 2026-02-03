@@ -6,6 +6,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public float speed;
     public GameObject sportBall;
+    public GameObject currentSportBall;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,19 +16,23 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sportBall != null)
+        if (currentSportBall != null)
         {
-            Vector3 sportBallOffset = new Vector3(0.0f, -1.0f, 0.0f);
-            sportBall.transform.position = gameObject.transform.position + sportBallOffset;
-            sportBall.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
-            sportBall.GetComponent<Collider2D>().enabled = false;
+            Vector3 currentSportBallOffset = new Vector3(0.0f, -1.0f, 0.0f);
+            currentSportBall.transform.position = gameObject.transform.position + currentSportBallOffset;
+            currentSportBall.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+            currentSportBall.GetComponent<Collider2D>().enabled = false;
+        }
+        else
+        {
+            currentSportBall = Instantiate(sportBall, transform.position, Quaternion.identity);
         }
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            sportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            sportBall.GetComponent<Collider2D>().enabled = true;
-            sportBall = null;
+            currentSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+            currentSportBall.GetComponent<Collider2D>().enabled = true;
+            currentSportBall = null;
         }
 
         float offset = 0.0f;
