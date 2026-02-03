@@ -5,6 +5,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
 
     public float speed;
+    public GameObject sportBall;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +15,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (sportBall != null)
+        {
+            Vector3 sportBallOffset = new Vector3(0.0f, -1.0f, 0.0f);
+            sportBall.transform.position = gameObject.transform.position + sportBallOffset;
+        }
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            sportBall = null;
+        }
+
         float offset = 0.0f;
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
         {
