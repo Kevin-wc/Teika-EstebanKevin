@@ -6,16 +6,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public float speed;
     public GameObject sportBall;
-    public GameObject currentSportBall;
-    public int[] numbers;
-    public gameObject[] sports;
+    private GameObject currentSportBall;
+    public GameObject[] sports;
+    public float min;
+    public float max;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < numbers.length; i++)
-        {
-            print(numbers[i]);
-        }
+
     }
 
     // Update is called once per frame
@@ -48,8 +46,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             offset += speed;
         }
+
         Vector3 newPos = transform.position;
         newPos.x = transform.position.x + offset;
+
+        if (newPos.x > max)
+        {
+            newPos.x = max;
+        }
+
+        if (newPos.x < min)
+        {
+            newPos.x = min;
+        }
         transform.position = newPos;
     }
 }
