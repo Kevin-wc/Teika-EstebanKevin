@@ -19,6 +19,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float startTime = Time.time;
+        float currentTime = Time.time;
+        print(currentTime);
+
         if (currentSportBall != null)
         {
             Vector3 currentSportBallOffset = new Vector3(0.0f, -1.0f, 0.0f);
@@ -27,7 +31,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         else
         {
-            currentSportBall = Instantiate(sportBall, transform.position, Quaternion.identity);
+            int index = Random.Range(0, sports.Length);
+            currentSportBall = Instantiate(sports[index], transform.position, Quaternion.identity);
         }
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
