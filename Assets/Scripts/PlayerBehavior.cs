@@ -13,15 +13,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        //  startTime = 0.0f;
+        //  move = 0; // means you can move both ways
     }
 
     // Update is called once per frame
     void Update()
     {
-        float startTime = Time.time;
-        float currentTime = Time.time;
-        print(currentTime);
+        //float startTime = Time.time;
+        //float currentTime = Time.time;
+        //print(currentTime);
 
         if (currentSportBall != null)
         {
@@ -43,11 +44,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
         float offset = 0.0f;
-        if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
+        bool left = (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed);
+        if (left)
         {
             offset -= speed;
         }
-        if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
+
+        bool right = (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed);
+        if (right)
         {
             offset += speed;
         }
@@ -66,4 +70,31 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         transform.position = newPos;
     }
+
+    /* private void OnCollisionEnter2D(Collision2D other)
+     {
+         print("Collided with " + other.gameObject.name);
+         if (other.gameObject.CompareTag("AB"))
+         {
+             //  move = 1;
+         }
+     }*/
+    /* private void OnCollisionStay2D(Collision2D other)
+     {
+         print("Colliding with " + other.gameObject.name);
+         if (true)
+         {
+
+         }
+     }*/
+
+    /* private void OnCollisionExit2D(Collision2D other)
+     {
+         print("Stopped Colliding with " + other.gameObject.name);
+         if (other.gameObject.CompareTag("AB"))
+         {
+             //  move = 1;
+         }
+
+     }*/
 }
