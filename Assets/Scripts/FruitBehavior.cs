@@ -5,6 +5,7 @@ public class FruitBehavior : MonoBehaviour
 {
     public float timeout;
     public float timeStart;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
