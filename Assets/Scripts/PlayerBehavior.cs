@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+using TMPro;
+public class PlayerBehavior : MonoBehaviour
 {
 
     public float speed;
@@ -10,6 +11,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public GameObject[] sports;
     public float min;
     public float max;
+
+    public int[] points;
+    public int total;
+    public TMP_Text text;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,6 +74,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
             newPos.x = min;
         }
         transform.position = newPos;
+
+
+    }
+
+    public void updateScore(int index)
+    {
+        total = total + points[index];
+        text.SetText("Score: " + total);
     }
 
     /* private void OnCollisionEnter2D(Collision2D other)
