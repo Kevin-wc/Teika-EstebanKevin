@@ -9,6 +9,7 @@ public class FruitBehavior : MonoBehaviour
 
     public GameObject[] sports;
     public int sportBallIndex;
+    private AudioSource mergeSource;
 
 
 
@@ -16,6 +17,8 @@ public class FruitBehavior : MonoBehaviour
     void Start()
     {
         sports = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().sports;
+        mergeSource = GameObject.FindGameObjectWithTag("Player").
+             GetComponents<AudioSource>()[0];
     }
 
     // Update is called once per frame
@@ -41,7 +44,10 @@ public class FruitBehavior : MonoBehaviour
                         otherFruit.transform.position, 0.5f), Quaternion.identity);
                     newSportBall.GetComponent<Collider2D>().enabled = true;
                     newSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                    Destroy(otherFruit);
+                    mergeSource.Play();
+                    // GameObject.FindGameObjectWithTag("Player").
+                    //     GetComponent<PlayerBehavior>().updateScore("fruitType");
+                    Destroy(otherFruit.gameObject);
                     Destroy(gameObject);
                 }
             }

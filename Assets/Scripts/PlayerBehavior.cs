@@ -15,11 +15,13 @@ public class PlayerBehavior : MonoBehaviour
     public int[] points;
     public int total;
     public TMP_Text text;
+    public AudioSource dropSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //  startTime = 0.0f;
         //  move = 0; // means you can move both ways
+        dropSource = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -40,12 +42,16 @@ public class PlayerBehavior : MonoBehaviour
             int index = Random.Range(0, sports.Length);
             currentSportBall = Instantiate(sports[index], transform.position, Quaternion.identity);
         }
-
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        float nextDropTime = 0.0f;
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.time > nextDropTime)
         {
-            currentSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            currentSportBall.GetComponent<Collider2D>().enabled = true;
+            Rigidbody2D body = currentSportBall.GetComponent<Rigidbody2D>();
+            body.gravityScale = 1.0f;
+            dropSource.Play();
+            Collider2D collider = currentSportBall.GetComponent<Collider2D>();
+            collider.enabled = true;
             currentSportBall = null;
+            nextDropTime = Time.time + 1.0f;
         }
 
         float offset = 0.0f;
