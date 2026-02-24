@@ -24,7 +24,7 @@ public class FruitBehavior : MonoBehaviour
 
     }
 
-    private void CollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("fruit"))
         {
