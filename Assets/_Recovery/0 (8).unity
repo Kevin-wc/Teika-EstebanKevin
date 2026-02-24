@@ -442,7 +442,7 @@ MonoBehaviour:
   max: 2.225
   points: 0200000003000000040000000500000006000000080000000a0000000c0000000f0000001e000000
   score: 0
-  scoreText: {fileID: 1248100449}
+  scoreText: {fileID: 0}
   dropSource: {fileID: 0}
 --- !u!212 &205401247
 SpriteRenderer:

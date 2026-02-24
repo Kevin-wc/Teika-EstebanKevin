@@ -45,8 +45,8 @@ public class FruitBehavior : MonoBehaviour
                     newSportBall.GetComponent<Collider2D>().enabled = true;
                     newSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                     mergeSource.Play();
-                    // GameObject.FindGameObjectWithTag("Player").
-                    //     GetComponent<PlayerBehavior>().updateScore("fruitType");
+                    GameObject.FindGameObjectWithTag("Player").
+                        GetComponent<PlayerBehavior>().UpdateScore(sportBallIndex);
                     Destroy(otherFruit.gameObject);
                     Destroy(gameObject);
                 }

@@ -13,14 +13,15 @@ public class PlayerBehavior : MonoBehaviour
     public float max;
 
     public int[] points;
-    public int total;
-    public TMP_Text text;
+    public int score;
+    public TMP_Text scoreText;
     public AudioSource dropSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //  startTime = 0.0f;
         //  move = 0; // means you can move both ways
+        score = 0;
         dropSource = GetComponents<AudioSource>()[1];
     }
 
@@ -84,10 +85,10 @@ public class PlayerBehavior : MonoBehaviour
 
     }
 
-    public void updateScore(int index)
+    public void UpdateScore(int index)
     {
-        total = total + points[index];
-        text.SetText("Score: " + total);
+        score = score + points[index];
+        scoreText.SetText("Score: " + score);
     }
 
     /* private void OnCollisionEnter2D(Collision2D other)
