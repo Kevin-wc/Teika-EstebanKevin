@@ -33,12 +33,13 @@ public class FruitBehavior : MonoBehaviour
         {
             GameObject otherFruit = col.gameObject;
             int otherFruitIndex = otherFruit.GetComponent<FruitBehavior>().sportBallIndex;
-            if (sportBallIndex == otherFruitIndex && sportBallIndex != 0)
+            if (sportBallIndex == otherFruitIndex && sportBallIndex != 10)
             {
                 if (transform.position.x > otherFruit.transform.position.x ||
                     (transform.position.y > otherFruit.transform.position.y
                     && transform.position.x == otherFruit.transform.position.x))
                 {
+
                     GameObject newSportBall =
                         Instantiate(sports[sportBallIndex + 1], Vector3.Lerp(transform.position,
                         otherFruit.transform.position, 0.5f), Quaternion.identity);
