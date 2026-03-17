@@ -11,7 +11,7 @@ public class PlayerBehavior : MonoBehaviour
     public GameObject[] sports;
     public float min;
     public float max;
-
+    public GameObject queue;
     public int[] points;
     public int score;
     public TMP_Text scoreText;
@@ -23,6 +23,7 @@ public class PlayerBehavior : MonoBehaviour
         //  move = 0; // means you can move both ways
         score = 0;
         dropSource = GetComponents<AudioSource>()[1];
+        queue = GameObject.FindGameObjectWithTag("Queue");
     }
 
     // Update is called once per frame
@@ -40,8 +41,9 @@ public class PlayerBehavior : MonoBehaviour
         }
         else
         {
-            int index = Random.Range(0, sports.Length);
-            currentSportBall = Instantiate(sports[index], transform.position, Quaternion.identity);
+            int choice = queue.GetComponent<QueueManager>().updateQueue();
+            //int index = Random.Range(0, sports.Length);
+            currentSportBall = Instantiate(sports[choice], transform.position, Quaternion.identity);
         }
         float nextDropTime = 0.0f;
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.time > nextDropTime)
