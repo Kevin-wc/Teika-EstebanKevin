@@ -35,21 +35,28 @@ public class FruitBehavior : MonoBehaviour
             int otherFruitIndex = otherFruit.GetComponent<FruitBehavior>().sportBallIndex;
             if (sportBallIndex == otherFruitIndex && sportBallIndex != 10)
             {
+
                 if (transform.position.x > otherFruit.transform.position.x ||
                     (transform.position.y > otherFruit.transform.position.y
                     && transform.position.x == otherFruit.transform.position.x))
                 {
 
-                    GameObject newSportBall =
-                        Instantiate(sports[sportBallIndex + 1], Vector3.Lerp(transform.position,
-                        otherFruit.transform.position, 0.5f), Quaternion.identity);
-                    newSportBall.GetComponent<Collider2D>().enabled = true;
-                    newSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                    print(gameObject.name + " is merging with " + otherFruit.name);
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                    print("Me: " + transform.position.x + " Other: " + otherFruit.transform.position.x);
+                    print(transform.position.x > otherFruit.transform.position.x);
+                    print(transform.position.y > otherFruit.transform.position.y);
+                    print(transform.position.x == otherFruit.transform.position.x);
+                    // GameObject newSportBall =
+                    // Instantiate(sports[sportBallIndex + 1], Vector3.Lerp(transform.position,
+                    // otherFruit.transform.position, 0.5f), Quaternion.identity);
+                    // newSportBall.GetComponent<Collider2D>().enabled = true;
+                    // newSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                     mergeSource.Play();
                     GameObject.FindGameObjectWithTag("Player").
                         GetComponent<PlayerBehavior>().UpdateScore(sportBallIndex);
-                    Destroy(otherFruit.gameObject);
-                    Destroy(gameObject);
+                    // Destroy(otherFruit.gameObject);
+                    // Destroy(gameObject);
                 }
             }
         }

@@ -50,7 +50,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2958101932711914551, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
       propertyPath: m_Name
-      value: birdie
+      value: var0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537667766790568006, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 488903730692909379, guid: fc6fd586f64684081ac36a08f86f0c39, type: 3}
+    - target: {fileID: 6574307235665143600, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
+      propertyPath: sportBallIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245362684752710006, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245362684752710006, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
