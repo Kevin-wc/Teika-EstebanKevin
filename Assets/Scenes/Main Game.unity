@@ -153,7 +153,7 @@ MonoBehaviour:
   - {fileID: 8160775752198118580, guid: f253daf75635a4a81910bc055d143356, type: 3}
   - {fileID: 7448113381798972013, guid: f253daf75635a4a81910bc055d143356, type: 3}
   - {fileID: 7843416716369364892, guid: f253daf75635a4a81910bc055d143356, type: 3}
-  queue: 
+  queue: 00000000010000000200000003000000
 --- !u!4 &86954547
 Transform:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   - {fileID: 6997275540691905066, guid: dd3e07bcd41a048e089ba9d088742906, type: 3}
   min: -2.225
   max: 2.225
-  queue: {fileID: 0}
+  queue: {fileID: 86954545}
   points: 0200000003000000040000000500000006000000080000000a0000000c0000000f0000001e000000
   score: 0
   scoreText: {fileID: 1248100449}
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532bf9c75e0fc4b96bd6fcc67726bafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BorderBehavior
-  timeout: 20
+  timeout: 6
   timeStart: 0
   gameOver: {fileID: 746616233}
   player: {fileID: 205401245}
@@ -2843,11 +2843,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 699596228159349252, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 699596228159349252, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.51
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 699596228159349252, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2895,7 +2895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574307235665143600, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
       propertyPath: timeStart
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7245362684752710006, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
       propertyPath: m_Enabled

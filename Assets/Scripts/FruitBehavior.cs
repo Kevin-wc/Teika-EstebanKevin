@@ -42,6 +42,7 @@ public class FruitBehavior : MonoBehaviour
                 {
 
                     print(gameObject.name + " is merging with " + otherFruit.name);
+                    print("This fruit: " + gameObject.name + " Other fruit: " + otherFruit.name);
                     gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                     print("Me: " + transform.position.x + " Other: " + otherFruit.transform.position.x);
                     print(transform.position.x > otherFruit.transform.position.x);
@@ -55,7 +56,7 @@ public class FruitBehavior : MonoBehaviour
                     mergeSource.Play();
                     GameObject.FindGameObjectWithTag("Player").
                         GetComponent<PlayerBehavior>().UpdateScore(sportBallIndex);
-                    // Destroy(otherFruit.gameObject);
+                    // Destroy(otherFruit);
                     // Destroy(gameObject);
                 }
             }

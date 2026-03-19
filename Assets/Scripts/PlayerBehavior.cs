@@ -16,6 +16,7 @@ public class PlayerBehavior : MonoBehaviour
     public int score;
     public TMP_Text scoreText;
     public AudioSource dropSource;
+    private float nextDropTime = 0.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +46,7 @@ public class PlayerBehavior : MonoBehaviour
             //int index = Random.Range(0, sports.Length);
             currentSportBall = Instantiate(sports[choice], transform.position, Quaternion.identity);
         }
-        float nextDropTime = 0.0f;
+
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.time > nextDropTime)
         {
             Rigidbody2D body = currentSportBall.GetComponent<Rigidbody2D>();
@@ -93,30 +94,5 @@ public class PlayerBehavior : MonoBehaviour
         scoreText.SetText("Score: " + score);
     }
 
-    /* private void OnCollisionEnter2D(Collision2D other)
-     {
-         print("Collided with " + other.gameObject.name);
-         if (other.gameObject.CompareTag("AB"))
-         {
-             //  move = 1;
-         }
-     }*/
-    /* private void OnCollisionStay2D(Collision2D other)
-     {
-         print("Colliding with " + other.gameObject.name);
-         if (true)
-         {
 
-         }
-     }*/
-
-    /* private void OnCollisionExit2D(Collision2D other)
-     {
-         print("Stopped Colliding with " + other.gameObject.name);
-         if (other.gameObject.CompareTag("AB"))
-         {
-             //  move = 1;
-         }
-
-     }*/
 }

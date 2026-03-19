@@ -18,7 +18,7 @@ public class QueueManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            queue[i] = Random.Range(0, 10);
+            queue[i] = Random.Range(0, 4);
         }
     }
 
@@ -40,7 +40,7 @@ public class QueueManager : MonoBehaviour
             queue[i] = queue[i + 1];
         }
 
-        queue[3] = Random.Range(1, 4);
+        queue[3] = Random.Range(0, 4);
         return type;
     }
 }
