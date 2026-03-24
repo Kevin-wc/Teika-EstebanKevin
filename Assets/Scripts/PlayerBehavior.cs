@@ -25,6 +25,7 @@ public class PlayerBehavior : MonoBehaviour
         score = 0;
         dropSource = GetComponents<AudioSource>()[1];
         queue = GameObject.FindGameObjectWithTag("Queue");
+        scoreText.SetText("Score: " + score);
     }
 
     // Update is called once per frame

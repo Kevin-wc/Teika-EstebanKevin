@@ -9,6 +9,8 @@ public class FruitBehavior : MonoBehaviour
 
     public GameObject[] sports;
     public int sportBallIndex;
+    public int jokerIndex = 8;
+    public int maxNormalIndex = 7;
     private AudioSource mergeSource;
 
 
@@ -33,23 +35,38 @@ public class FruitBehavior : MonoBehaviour
         {
             GameObject otherFruit = col.gameObject;
             int otherFruitIndex = otherFruit.GetComponent<FruitBehavior>().sportBallIndex;
-            if (sportBallIndex == otherFruitIndex && sportBallIndex != 10)
-            {
 
+            bool normalMerge = (sportBallIndex == otherFruitIndex && sportBallIndex != jokerIndex && sportBallIndex < maxNormalIndex);
+
+            bool jokerMerge = (sportBallIndex == jokerIndex && otherFruitIndex != jokerIndex && otherFruitIndex < maxNormalIndex);
+            bool otherIsJoker = (otherFruitIndex == jokerIndex && sportBallIndex != jokerIndex && sportBallIndex < maxNormalIndex);
+            if (normalMerge || jokerMerge || otherIsJoker)
+            {
                 if (transform.position.x > otherFruit.transform.position.x ||
                     (transform.position.y > otherFruit.transform.position.y
                     && transform.position.x == otherFruit.transform.position.x))
                 {
+                    int newIndex = 0;
+                    int scoreIndex = 0;
 
-                    print(gameObject.name + " is merging with " + otherFruit.name);
-                    print("This fruit: " + gameObject.name + " Other fruit: " + otherFruit.name);
-                    gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                    print("Me: " + transform.position.x + " Other: " + otherFruit.transform.position.x);
-                    print(transform.position.x > otherFruit.transform.position.x);
-                    print(transform.position.y > otherFruit.transform.position.y);
-                    print(transform.position.x == otherFruit.transform.position.x);
+                    if (normalMerge)
+                    {
+                        newIndex = sportBallIndex + 1;
+                        scoreIndex = sportBallIndex;
+                    }
+                    else if (jokerMerge)
+                    {
+                        newIndex = otherFruitIndex + 1;
+                        scoreIndex = otherFruitIndex;
+                    }
+                    else if (otherIsJoker)
+                    {
+                        newIndex = sportBallIndex + 1;
+                        scoreIndex = sportBallIndex;
+                    }
+
                     GameObject newSportBall =
-                    Instantiate(sports[sportBallIndex + 1], Vector3.Lerp(transform.position,
+                    Instantiate(sports[newIndex], Vector3.Lerp(transform.position,
                     otherFruit.transform.position, 0.5f), Quaternion.identity);
                     newSportBall.GetComponent<Collider2D>().enabled = true;
                     newSportBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;

@@ -3,10 +3,12 @@ using UnityEngine.InputSystem;
 
 public class BorderBehavior : MonoBehaviour
 {
-    public float timeout;
-    public float timeStart;
+    public float timeout = 2f;
+    public float timeStart = 0f;
     public GameObject gameOver;
     public GameObject player;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +27,7 @@ public class BorderBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("fruit"))
         {
+
             timeStart = Time.time;
         }
     }

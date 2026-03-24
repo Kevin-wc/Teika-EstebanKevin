@@ -6,6 +6,9 @@ public class QueueManager : MonoBehaviour
     public int[] queue;
     private SpriteRenderer[] childRenderers;
 
+    public int jokerIndex = 8;
+    private int jokerTimer = 20;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +21,7 @@ public class QueueManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            queue[i] = Random.Range(0, 4);
+            queue[i] = GetRandomFruit();
         }
     }
 
@@ -31,6 +34,21 @@ public class QueueManager : MonoBehaviour
         }
     }
 
+    private int GetRandomFruit()
+    {
+        if (jokerTimer >= 20)
+        {
+            int chance = Random.Range(0, 5);
+            if (chance == 0)
+            {
+                jokerTimer = 0;
+                return jokerIndex;
+            }
+        }
+        jokerTimer++;
+        return Random.Range(0, 4);
+    }
+
     public int updateQueue()
     {
         int type = queue[0];
@@ -40,7 +58,7 @@ public class QueueManager : MonoBehaviour
             queue[i] = queue[i + 1];
         }
 
-        queue[3] = Random.Range(0, 4);
+        queue[3] = GetRandomFruit();
         return type;
     }
 }
