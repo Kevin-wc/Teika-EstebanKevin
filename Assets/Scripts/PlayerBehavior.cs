@@ -63,13 +63,13 @@ public class PlayerBehavior : MonoBehaviour
         bool left = (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed);
         if (left)
         {
-            offset -= speed;
+            offset -= speed * Time.deltaTime;
         }
 
         bool right = (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed);
         if (right)
         {
-            offset += speed;
+            offset += speed * Time.deltaTime;
         }
 
         Vector3 newPos = transform.position;

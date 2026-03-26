@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee79a024dfdb443d8b92eea6b2f0e2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  speed: 0.005
+  speed: 3
   sportBall: {fileID: 650531394}
   sports:
   - {fileID: 2958101932711914551, guid: 62a59db71b59f44c196f9e238bc7c177, type: 3}
